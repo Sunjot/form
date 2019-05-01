@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+$xs-width: 320px;
+$sm-width: 400px;
+$md-width: 600px;
+$lg-width: 1024px;
+
+@mixin xs {
+  @media (min-width: #{$xs-width}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$sm-width}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$md-width}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$lg-width}) {
+    @content;
+  }
+}
+
+#application-cont {
+  @include flex(column, flex-start, center);
+  font-family: 'Montserrat';
+  width: 100%;
+
+  #page-title {
+    margin: 20px;
+    font-size: 30px;
+
+    @include xs {
+      font-size: 22px;
+    }
+
+    @include sm {
+      font-size: 26px;
+    }
+
+    @include md {
+      font-size: 30px;
+    }
+  }
+
+  #links {
+    @include flex(row, center, center);
+
+    .linkItem {
+      border: 1px solid black;
+      margin: 0 5px 0 5px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      @include xs {
+        padding: 4px;
+        font-size: 12px;
+      }
+
+      @include sm {
+        padding: 5px;
+        font-size: 14px;
+      }
+
+      @include md {
+        padding: 7px;
+        font-size: 16px;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .active {
+      background-color: #435a63;
+      color: white;
+    }
+  }
+}
+
+
+.form-cont {
+  @include flex(column, flex-start, center);
+  width: 100%;
+  margin-top: 20px;
+
+  .form {
+    border: 1px solid black;
+    border-radius: 4px;
+
+    @include xs {
+      width: 270px;
+      padding: 15px;
+      margin: 10px;
+    }
+
+    @include sm {
+      width: 320px;
+      padding: 20px;
+      margin: 14px;
+    }
+
+    @include md {
+      width: 400px;
+      padding: 25px;
+      margin: 20px;
+    }
+
+    .form-title {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 15 0;
+
+      @include xs {
+        font-size: 14px;
+        margin: 0 0 5 0;
+      }
+
+      @include sm {
+        font-size: 18px;
+        margin: 0 0 15 0;
+      }
+
+      @include md {
+        font-size: 20px;
+      }
+    }
+
+    input[type="text"] {
+      width: 100%;
+      margin: 5px;
+      padding-left: 5px;
+      border-radius: 3px;
+      border: 1px solid #cccccc;
+      transition: border-color 0.3s;
+
+      @include xs {
+        height: 25px;
+        font-size: 12px;
+      }
+
+      @include sm {
+        height: 30px;
+        font-size: 14px;
+      }
+
+      @include md {
+        height: 35px;
+        font-size: 16px;
+      }
+
+      &:focus {
+        border-color: black;
+      }
+    }
+
+    .radio {
+      @include flex(row, flex-start, center);
+      margin: 10 5 10 5;
+
+      @include xs {
+        font-size: 12px;
+      }
+
+      @include sm {
+        font-size: 14px;
+      }
+
+      @include md {
+        font-size: 16px;
+      }
+
+      .radio-item {
+        @include flex(row, flex-start, center);
+
+        .radio-title {
+          margin: 0 5 0 0;
+        }
+
+        input[type="radio"] {
+          margin: 0 10 0 0;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      cursor: pointer;
+      margin: 15 0 5 0;
+      background-color: white;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      transition: border-color 0.5s;
+
+      @include xs {
+        font-size: 11px;
+        padding: 2px;
+      }
+
+      @include sm {
+        font-size: 12px;
+        padding: 3px;
+      }
+
+      @include md {
+        font-size: 15px;
+        padding: 5px;
+      }
+
+      &:hover {
+        border-color: black;
+      }
+    }
+
+    #dropdown-cont {
+      @include flex(row, flex-start, center);
+
+      .title {
+        margin: 5 15 5 5;
+
+        @include xs {
+          font-size: 12px;
+        }
+
+        @include sm {
+          font-size: 14px;
+        }
+
+        @include md {
+          font-size: 16px;
+        }
+      }
+
+      #course-dropdown {
+        width: 250px;
+        font-size: 13px;
+
+        @include xs {
+          font-size: 10px;
+          height: 18px;
+        }
+
+        @include sm {
+          font-size: 11px;
+          height: 21px;
+        }
+
+        @include md {
+          font-size: 13px;
+          height: 25px;
+        }
+
+
+      }
+    }
+  }
+
+  .list {
+    width: 900px;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    margin: 20 0 20 0;
+
+    @include xs {
+      width: 300px;
+      font-size: 8px;
+    }
+
+    @include sm {
+      width: 380px;
+      font-size: 10px;
+    }
+
+    @include md {
+      width: 560px;
+      font-size: 13px;
+    }
+
+    @include lg {
+      width: 900px;
+      font-size: 16px;
+    }
+
+
+    .title-row {
+      @include flex(row, flex-start, center);
+      border-bottom: 1px solid;
+      background-color: #eaeaea;
+      padding: 5px;
+    }
+
+    #teacher-title-row > div {
+      width: 20%;
+    }
+
+    #course-title-row > div {
+      width: 25%;
+    }
+
+    .list-row {
+      @include flex(row, flex-start, center);
+      padding: 3 5 3 5;
+
+      .remove-button {
+        cursor: pointer;
+      }
+    }
+
+    #teacher-row > div {
+      width: 20%;
+    }
+
+    #course-row > div {
+      width: 25%;
+    }
+  }
+
+}
