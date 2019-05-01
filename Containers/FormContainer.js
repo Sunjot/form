@@ -25,11 +25,11 @@ class FormContainer extends React.Component {
           <div className={links === 0? "linkItem active" : "linkItem"} onClick={() => toggleForm(0)}>Teachers</div>
           <div className={links === 1? "linkItem active" : "linkItem"} onClick={() => toggleForm(1)}>Courses</div>
         </div>
-        {links === 0 &&
+        {links === 0 && // if 0, render teacher form/list
           <TeacherForm teachers={teachers} addTeacher={(t) => addTeacher(t)}
             removeTeacher={(id) => removeTeacher(id)} courses={courses} />
         }
-        {links === 1 &&
+        {links === 1 && // if 1, render course form/list
           <CourseForm courses={courses} addCourse={(c) => addCourse(c)}
             removeCourse={(id) => removeCourse(id)} />
         }
@@ -41,9 +41,9 @@ class FormContainer extends React.Component {
 const mapStateToProps = (state) => {
   return(
     {
-      teachers: state.teachers,
-      courses: state.courses,
-      links: state.links
+      teachers: state.teachers, // list of teachers
+      courses: state.courses, // list of courses
+      links: state.links // Identifying which form is in view
     }
   );
 }

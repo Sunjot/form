@@ -1,5 +1,6 @@
 
 let teacherIndex = 2;
+
 const initialTeachers = [
   {
     id: 0,
@@ -28,13 +29,13 @@ const teachers = (state = initialTeachers, action) => {
 
   switch (action.type) {
 
-    case 'ADD_TEACHER':
+    case 'ADD_TEACHER': // assign new id and add teacher to array
       teacherIndex++;
       return [
         ...state, { ...action.teacher, id: teacherIndex }
       ];
 
-    case 'REMOVE_TEACHER':
+    case 'REMOVE_TEACHER': // remove teacher from array if id matches
       return state.filter(teacher => teacher.id !== action.id);
 
     default:

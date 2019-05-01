@@ -26,13 +26,13 @@ const courses = (state = initialCourses, action) => {
 
   switch(action.type) {
 
-    case 'ADD_COURSE':
+    case 'ADD_COURSE': // assign new id and add course to array
     courseIndex++;
       return [
         ...state, { ...action.course, id: courseIndex }
       ];
 
-    case 'REMOVE_COURSE':
+    case 'REMOVE_COURSE': // remove course from array if id matches
       return state.filter(course => course.id !== action.id);
 
     default:
